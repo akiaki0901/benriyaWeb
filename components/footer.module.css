@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 90px;
+    margin-bottom: 10px;
+}
+.prop{
+    font-size: 14px;
+    color: rgb(95, 93, 93);
+    padding: 8px;
+}
+.hr{
+    border: none;
+    height: 1px;
+    background: #ddd;
+    width: 90%;
+    margin: 10px auto;
+
+}

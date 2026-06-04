@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-  ],
+, "components/Card.jsx", "components/Pagelayout.jsx"  ],
   "exclude": ["node_modules"]
 }

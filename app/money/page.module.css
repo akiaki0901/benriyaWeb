@@ -1,0 +1,51 @@
+.pageTitle{
+    font-size: 24px;
+    font-weight: 800;
+    color: black;
+    margin-bottom: 30px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    padding-top: 140px;
+    justify-content: center;
+    align-items: center;
+}
+.message{
+    font-size: 20px;
+    color: black;
+    max-width: 84%;
+    margin-bottom: 5px;
+    
+} 
+.ul{
+    color: #1e366a;
+    list-style:disc ;
+    width: 300px;
+    margin-bottom: 30px;
+}
+.hr{
+    border: none;
+    height: 1px;
+    background: #ddd;
+    width: 90%;
+    margin: 10px auto;
+
+}
+.tableName{
+    font-size: 16px;
+    color: black;
+}
+.table {
+  width: 80%;
+  max-width: 344px;
+  border-collapse: collapse;
+  background: white;
+}
+.table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+  color:black;
+  font-size: 16px;
+}
