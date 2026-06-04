@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 
+export const config = {
+    matcher: ["/:path*"],
+};
+
 export function middleware(request) {
     const auth = request.headers.get("authorization");
 
