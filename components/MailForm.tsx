@@ -117,7 +117,7 @@ export default function MailForm(){
 
             </label>
             <div className={styles.images}>{images.map((file)=>
-                (<img key={file.id} className={styles.image} src={URL.createObjectURL(file.src)} alt="" width={100} height={100}/>)
+                (file.src&&<img key={file.id} className={styles.image} src={URL.createObjectURL(file.src)} alt="" width={100} height={100}/>)
             )}</div>
             <span className={styles.btns}>
                 <button className={styles.btn}
