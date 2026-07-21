@@ -36,7 +36,7 @@ export default function Pagelayout({children}){
             {/*{!isRock &&*/} 
             <div>
                 <Header/>
-                <>{children}</>
+                <div>{children}</div>
                 <Footer/>
             </div>{/*}*/}
 
