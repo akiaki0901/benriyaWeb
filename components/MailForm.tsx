@@ -1,13 +1,12 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 import styles from "./mail.module.css";
 
 
 export default function MailForm(){
-    type Mail ={name:string,tell:string,email:string,address:string,content:string};
+    type Mail ={name:string,tell:string,email:string,address:string,content:string,preferredDate:string};
     type idfile ={id:number,src:File|null};
-    const [mail,setMail] = useState<Mail>({name:"",tell:"",email:"",address:"",content:""});
+    const [mail,setMail] = useState<Mail>({name:"",tell:"",email:"",address:"",content:"",preferredDate:""});
     const [images,setImages] = useState<idfile[]>([]);
     const MAX_SIZE = 5 * 1024* 1024;
     const [imgsize,setImgsize] = useState(0);
@@ -34,23 +33,68 @@ export default function MailForm(){
                 formData.append("images[]",images[i].src as File);
             }
             const res = await fetch("/api/send",{
-            method:"POST",
-            /*formdataを送る形式にしたので消す
-            headers:{
-                "Content-Type":"application/json"
-            },*/
-            body:formData
+                method:"POST",
+                /*formdataを送る形式にしたので消す
+                headers:{
+                    "Content-Type":"application/json"
+                },*/
+                body:formData
              });
             if(!res.ok)throw new Error("送信失敗");
-            if(res.ok)alert("成功");
+            if(res.ok){
+                saveReservation({
+                    name:mail.name,
+                    phone:mail.tell,
+                    email:mail.email,
+                    address:mail.address,
+                    requestContent:mail.content,
+                    preferredData:mail.preferredDate
+                });
+                alert("成功");
+            }
                 
         }catch(error){
+            console.error(error);
             alert("送信に失敗しました");
         }finally{
             setLoading(false)
         }
         
         
+    }
+
+    async function saveReservation(data:{
+        name:string;
+        phone:string;
+        email:string;
+        address:string;
+        requestContent:string;
+        preferredData:string;
+    }) {
+        alert("スプレッドシート")
+        const responce = await fetch(
+            "api/reservation",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json",
+                },
+                body:JSON.stringify(data)
+            },
+        );
+
+        const result = await responce.json();
+
+        if(!result.success){
+            alert("スプレッドシートに保存失敗")
+            throw new Error(
+                result.message ?? "スプレッドシートへの保存に失敗しました"
+            );
+            
+        }
+        if(result.success){
+            alert("スプレッドシートに保存")
+        }
     }
 
     return(
@@ -60,36 +104,48 @@ export default function MailForm(){
             <input
             className={styles.input}
             value={mail.name}
-            onChange={(e)=>setMail({name:e.target.value,tell:mail.tell,email:mail.email,address:mail.address,content:mail.content,})}
+            onChange={(e)=>setMail({name:e.target.value,tell:mail.tell,email:mail.email,address:mail.address,content:mail.content,preferredDate:mail.preferredDate})}
             /*onBlur={()=>setMail({name:input,tell:mail.tell,mail:mail.mail,address:mail.address,content:mail.content,})}*/
             />
             <p className={styles.subtitle}>電話番号</p>
             <input
             className={styles.input}
             value={mail.tell}
-            onChange={(e)=>setMail({name:mail.name,tell:e.target.value,email:mail.email,address:mail.address,content:mail.content,})}
+            onChange={(e)=>setMail({name:mail.name,tell:e.target.value,email:mail.email,address:mail.address,content:mail.content,preferredDate:mail.preferredDate})}
             /*onBlur={()=>setMail({name:mail.name,tell:input,mail:mail.mail,address:mail.address,content:mail.content,})}*/
             />
             <p className={styles.subtitle}>メールアドレス</p>
             <input
             className={styles.input}
             value={mail.email}
-            onChange={(e)=>setMail({name:mail.name,tell:mail.tell,email:e.target.value,address:mail.address,content:mail.content,})}
+            onChange={(e)=>setMail({name:mail.name,tell:mail.tell,email:e.target.value,address:mail.address,content:mail.content,preferredDate:mail.preferredDate})}
             /*onBlur={()=>setMail({name:mail.name,tell:mail.tell,mail:input,address:mail.address,content:mail.content,})}*/
             />
             <p className={styles.subtitle}>ご住所 (市町区村までお願いします)</p>
             <input
             className={styles.input}
             value={mail.address}
-            onChange={(e)=>setMail({name:mail.name,tell:mail.tell,email:mail.email,address:e.target.value,content:mail.content,})}
+            onChange={(e)=>setMail({name:mail.name,tell:mail.tell,email:mail.email,address:e.target.value,content:mail.content,preferredDate:mail.preferredDate})}
             /*onBlur={()=>setMail({name:mail.name,tell:mail.tell,mail:mail.mail,address:input,content:mail.content,})}*/
             />
             <p className={styles.subtitle}>依頼内容 (どんなことでも気軽にどうぞ!)</p>
             <textarea
             className={styles.textarea}
             value={mail.content}
-            onChange={(e)=>setMail({name:mail.name,tell:mail.tell,email:mail.email,address:mail.address,content:e.target.value,})}
+            onChange={(e)=>setMail({name:mail.name,tell:mail.tell,email:mail.email,address:mail.address,content:e.target.value,preferredDate:mail.preferredDate})}
             /*onBlur={()=>setMail({name:mail.name,tell:mail.tell,mail:mail.mail,address:mail.address,content:input,})}*/
+            />
+            <p className={styles.subtitle}>希望の日時</p>
+            <input
+            type="date"
+            id="start"
+            name="preferredDate"
+            max="2026-12-31"
+            min="2026-7-21"
+            className={styles.input}
+            value={mail.preferredDate}
+            onChange={(e)=>setMail({name:mail.name,tell:mail.tell,email:mail.email,address:mail.address,content:mail.content,preferredDate:e.target.value})}
+            /*onBlur={()=>setMail({name:mail.name,tell:mail.tell,mail:mail.mail,address:input,content:mail.content,})}*/
             />
             <p className={styles.subtitle}>写真 ()</p>
             <input
@@ -126,7 +182,7 @@ export default function MailForm(){
                     送信
                 </button>
                 <button className={styles.btn}
-                onClick={()=>{setMail({name:"",tell:"",email:"",address:"",content:"",});setImages([]);setImgsize(0);}}
+                onClick={()=>{setMail({name:"",tell:"",email:"",address:"",content:"",preferredDate:""});setImages([]);setImgsize(0);}}
                 >
                     クリア
                 </button>

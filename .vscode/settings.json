@@ -1,0 +1,93 @@
+{
+    "editor.semanticHighlighting.enabled": true,
+
+    "workbench.colorCustomizations": {
+        "editorBracketMatch.background": "#264F78",
+        "editorBracketMatch.border": "#00000000"
+    },
+
+    "editor.semanticTokenColorCustomizations": {
+        "enabled": true,
+        "rules": {
+            "parameter": "#ffae57",
+            "variable": "#9cdcfe",
+            "property":"#D4D4D4",
+            /*"variable.local":"#d4d4d4",
+            "variable.declaration.local":"#d4d4d4",
+            "variable.Other":"#d4d4d4",
+            "variable.readonly.local":"#d4d4d4",
+            "forground":"#d4d4d4",
+            "function":"#f484f8"*/
+        }
+    },
+    
+    
+    "editor.tokenColorCustomizations": {
+    "textMateRules": [
+        /*{
+            "scope": [
+                "punctuation.separator.comma",
+                "punctuation.separator.comma.js",
+                "punctuation.accessor",
+                "punctuation.accessor.js",
+                "variable.other.object.property.js",
+                "punctuation.terminator.statement",
+                "punctuation.terminator.statement.js",
+                "variable.other.readwrite.alias.js"
+
+            ],
+            "settings": {
+                "foreground": "#D4D4D4"
+            },
+            
+        },*/
+        {
+            "scope": [
+
+                "storage.type.js",
+                
+                "storage.type.ts"
+            ],
+            "settings": {
+                "foreground": "#f77878"
+            },
+        },
+        {
+            "scope": [
+                "string.quoted.double.js",
+                "string.quoted.single.js",
+                "string.template.js",
+
+                "string.quoted.double.ts",
+                "string.quoted.single.ts",
+                "string.template.ts"
+            ],
+            "settings": {
+                "foreground": "#9CDCFE"
+            },
+        },
+        {
+            "scope": [
+                "comment.line.double-slash.js",
+                "comment.block.js",
+
+                "comment.line.double-slash.ts",
+                "comment.block.ts"
+            ],
+            "settings": {
+                "foreground": "#7e7f80"
+            },
+        },
+        /* {
+            "scope": [
+                "entity.name.function.js",
+                "entity.name.function.member"
+            ],
+            "settings": {
+                "foreground": "#f484f8"
+            },
+        },*/
+    ]
+},
+    
+}
