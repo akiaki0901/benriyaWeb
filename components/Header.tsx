@@ -19,8 +19,8 @@ export default function Header() {
           />
           <Link href="/"><h1 className={styles.title}>吉岡便利屋</h1></Link>
           <span className={styles.tellbox}>
-            <h2>気軽にお電話ください</h2>
-            <p style={{fontWeight:"700",fontSize:"20"}}>☎0000-000-000</p>
+            <h2 style={{color:"black"}}>気軽にお電話ください</h2>
+            <p style={{fontWeight:"700",fontSize:"20",color:"black"}}>☎0000-000-000</p>
           </span>
       </span>
 
