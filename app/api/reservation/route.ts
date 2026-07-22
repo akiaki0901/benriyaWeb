@@ -5,12 +5,17 @@ const appsScriptURL = process.env.GOOGLE_APPS_SCRIPT_URL;
 
 export async function POST(request:Request){
     try{
+        console.log("Apps Script URL:", Boolean(appsScriptURL));
+
         if(!appsScriptURL){
             throw new Error("環境変数 GOOGLE_APPS_SCRIPT_URL が設定されていません",);
         }
-
+        /*const rawBody = request.text();
+        console.log("受信した生データ:", rawBody);*/
         const body = await request.json();
-
+        console.log(JSON.stringify({
+                ...body,
+            }));
         const responce = await fetch(appsScriptURL,{
             method:"POST",
             headers:{
