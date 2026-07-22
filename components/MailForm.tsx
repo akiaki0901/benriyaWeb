@@ -109,6 +109,10 @@ export default function MailForm(){
             />
             <p className={styles.subtitle}>電話番号</p>
             <input
+            type="tel"
+            name="phone"
+            inputMode="tel"
+            autoComplete="tel"
             className={styles.input}
             value={mail.tell}
             onChange={(e)=>setMail({name:mail.name,tell:e.target.value,email:mail.email,address:mail.address,content:mail.content,preferredDate:mail.preferredDate})}
