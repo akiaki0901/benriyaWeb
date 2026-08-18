@@ -20,26 +20,10 @@ export default function Pagelayout({children}){
     }*/
 
     return(
-       
-        <div> 
-            {/*{isRock && 
-            <div>
-                <h1>DevelopeMode Input Password</h1>
-                <input
-                className={styles.input}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e)=>{if(e.key==="Enter")passcheck();}}
-                //onBlur={()=>setMail({name:input,tell:mail.tell,mail:mail.mail,address:mail.address,content:mail.content,})}
-                />
-            </div>}*/}
-            {/*{!isRock &&*/} 
-            <div>
-                <Header/>
-                <div>{children}</div>
-                <Footer/>
-            </div>{/*}*/}
-
-        </div>
+        <> 
+        <Header/>
+        <div style={{marginTop:"130px"}}>{children}</div>
+        <Footer/>
+        </>
     );
 }
