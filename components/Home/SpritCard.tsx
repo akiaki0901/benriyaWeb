@@ -10,6 +10,7 @@ type Props = {
   descrption:string;
 
   color:string;
+  hover_color:string;
   next?:string;
 }
 
@@ -19,6 +20,7 @@ export default function SpritCard({
   subTitle,
   descrption,
   color,
+  hover_color,
   next
 }:Props){
     return(
@@ -36,10 +38,10 @@ export default function SpritCard({
           <div className="buttonArea">
             {next ? (
               <Link href={next}>
-                <NextButton color={color} />
+                <NextButton color={color} hover_color={hover_color} />
               </Link>
             ) : (
-              <NextButton color={color} />
+              <NextButton color={color} hover_color={hover_color} />
             )}
          </div>
           
@@ -48,16 +50,16 @@ export default function SpritCard({
           .card{
             display:flex;
             flex-direction:column;
-
+            align-items:center;
             max-width:380px;
 
-            border:2px solid rgb(224, 220, 220);
+            background-color:white;
+            border:2px solid rgba(224, 220, 220,0.7);
             border-radius:10px;
 
-            padding:px;
             margin:10px;
 
-            
+            box-shadow:0 4px 5px rgba(0,0,0,0.15);
           }
           
           .buttonArea {
@@ -77,13 +79,14 @@ export default function SpritCard({
           h2{
             font-size:17px;
             font-weight:500;
-            margin-left:16px;
+            margin:5px 16px;
             color:${color};
           }
 
           p {
             padding:10px;
             font-size:16px;
+            font-weight:500;
             color:black;
           }
           
@@ -98,25 +101,37 @@ export default function SpritCard({
 
 function NextButton({
     color,
+    hover_color
   }:{
     color:string;
+    hover_color:string;
   }
 ){
   return(
   <>
-    <div 
+    <button
+      className="btn"
      style={{
       display:"flex",
-      height:"40px",
-      backgroundColor:color,
-      color:"white",
-      padding:"4px 15px",
+      height:"45px",
+      padding:"4px 30px",
       alignSelf:"center",
       alignItems:"center",
       borderRadius:"999px",
+      color:"white"
      }}
     >
-      <span>詳しくはこちら</span>
-    </div>
+      <span>詳しくはこちら ▶</span>
+    </button>
+    <style jsx>{`
+      .btn {
+        background-color:${color};
+        margin-bottom:5px;
+      }
+
+      .btn:hover {
+        background-color:${hover_color};
+      }
+    `}</style>
   </>);
 }

@@ -5,7 +5,7 @@ export default function Footer(){
 
         <div className={styles.container}>
             <hr className={styles.hr}/>
-            <>ⓒ吉岡便利屋  いつでもお電話ください</>   
+            <>(株)プロジェクトホープ</>   
         </div>
     );
 }
