@@ -1,139 +1,216 @@
-import { Noto_Serif_JP } from "next/font/google";
 import { BIZ_UDMincho } from "next/font/google";
 import { Murecho } from "next/font/google";
 
 import Link from "next/link";
 
- const font_noto_jp = Noto_Serif_JP({
-    subsets:["latin"],
-    weight:["500"]
-  });
 const font_biz = BIZ_UDMincho({
-  subsets:["latin"],
-  weight:["400"]
-  })
-const font_murecho = Murecho({
-  subsets:["latin"],
-  weight:["500"]
-  })
-export default function Header() {
- 
+  subsets: ["latin"],
+  weight: ["400"],
+});
 
+const font_murecho = Murecho({
+  subsets: ["latin"],
+  weight: ["500"],
+});
+
+export default function Header() {
   return (
     <>
-      <div className={`back ${font_biz.className}`}>
-        {
-        //アイコンをつけるときに社名と一緒に入れるボックス
-        /*<div style={{display:"flex", marginLeft:"10px"}}>
-          <img 
-            alt="image"
-            src="/Icons/Header.svg"
-            width={60}
-          /> 
-        </div>*/}
+      <header className={`back ${font_biz.className}`}>
         <div className="nameBox">
-          <Link href="/"><h1 className="name">(株)プロジェクトホープ</h1></Link>
-          <h2 className="subTitle">住まいと暮らしの工務店</h2>
+          <Link href="/">
+            <h1 className="name">
+              (株)プロジェクトホープ
+            </h1>
+          </Link>
+
+          <h2 className="subTitle">
+            住まいと暮らしの工務店
+          </h2>
         </div>
+
         <div className="numberMailInner">
           <div className="callBox">
-            <h1 className={`callNumber ${font_murecho.className}`}>📞0123-4567-8910</h1>
-            <h2>受付時間9:00~18:00(年中無休)</h2>
+            <h1 className={`callNumber ${font_murecho.className}`}>
+              📞0123-4567-8910
+            </h1>
+
+            <h2>
+              受付時間9:00~18:00(年中無休)
+            </h2>
           </div>
+
           <div className="mailButton">
             ✉お問い合わせ
           </div>
-       </div>
-        
-      </div>
-      <style jsx>{`
-        .name {
-          font-size:clamp(17px,3vw,32px);
-          white-space: nowrap;
-          font-weight:500;
-        }
-        .callNumber {
-          font-size:clamp(14px,2vw,28px);
-          white-space: nowrap;
-          font-weight:500;
-        }
-        h2{
-          font-size:clamp(12px,2vw,18px);
-          white-space: nowrap;
-          font-weight:500;
-        }
-        .back {
-          display:flex;
-          background-color:rgba(255, 255, 255, 0.9);
-          align-items:center;
+        </div>
+      </header>
 
-          position:fixed;
+      <style jsx>{`
+        .back {
+          position: fixed;
+
           top: 0;
           left: 0;
           right: 0;
-          z-index:1000;
-        }
-        .nameBox {
-          display:flex;
-          flex-direction:column;
-          align-items:flex-start;
 
-          margin-left:3px;
+          z-index: 1000;
+
+          height: var(--header-height);
+
+          display: flex;
+          align-items: center;
+
+          box-sizing: border-box;
+
+          padding: 4px 8px;
+
+          background-color: rgba(255, 255, 255, 0.93);
+
+          /*
+            下のコンテンツとの境界が少し見やすくなる
+          */
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-        .name{
-          display:flex;
+
+        .nameBox {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          min-width: 0;
         }
-        .callBox {
-          margin-left:auto;
-          margin-right:3px;
+
+        .name {
+          margin: 0;
+
+          font-size: clamp(17px, 3vw, 32px);
+          font-weight: 500;
+
+          white-space: nowrap;
         }
+
+        .subTitle {
+          margin: 0;
+        }
+
+        .callNumber {
+          margin: 0;
+
+          font-size: clamp(14px, 2vw, 28px);
+          font-weight: 500;
+
+          white-space: nowrap;
+        }
+
+        h2 {
+          margin: 0;
+
+          font-size: clamp(11px, 1.5vw, 18px);
+          font-weight: 500;
+
+          white-space: nowrap;
+        }
+
         .numberMailInner {
-          margin:4px;
-          margin-left:auto;
-          display:flex;
-          align-items:center;
+          margin-left: auto;
+
+          display: flex;
+          align-items: center;
+
+          gap: 10px;
         }
-        @media(max-width:700px){
-          .numberMailInner {
-            margin:5px;
-            margin-left:auto;
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-          }
+
+        .callBox {
+          display: flex;
+          flex-direction: column;
+
+          align-items: flex-start;
         }
 
         .mailButton {
-          background-color:rgb(3, 102, 3);
-          border-radius:999px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
-          display:flex;
+          padding: 7px 20px;
 
-          padding:5px 20px;
+          border-radius: 999px;
 
-          justify-content:center;
-          align-items:center;
+          background-color: rgb(3, 102, 3);
 
-          color:white;
-          font-size:20px;
+          color: white;
+
+          font-size: clamp(12px, 1.4vw, 20px);
+
+          white-space: nowrap;
         }
-        @media(max-width:700px){
+
+        @media (max-width: 700px) {
+          .back {
+            height: var(--header-height-mobile);
+
+            padding: 4px 6px;
+          }
+
+          .name {
+            font-size: clamp(15px, 4.3vw, 19px);
+          }
+
+          .subTitle {
+            font-size: clamp(10px, 2.8vw, 12px);
+          }
+
+          .numberMailInner {
+            gap: 4px;
+
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+          }
+
+          .callNumber {
+            font-size: clamp(11px, 3vw, 14px);
+          }
+
+          .callBox h2 {
+            font-size: clamp(8px, 2.1vw, 10px);
+          }
+
           .mailButton {
-            background-color:rgb(3, 102, 3);
-            border-radius:999px;
+            padding: 4px 12px;
 
-            display:flex;
+            font-size: clamp(10px, 2.7vw, 12px);
+          }
+        }
 
-            padding:5px 20px;
+        @media (max-width: 430px) {
+          .back {
+            padding: 3px 5px;
+          }
 
-            justify-content:center;
-            align-items:center;
+          .name {
+            font-size: 15px;
+          }
 
-            color:white;
-            font-size:12px;
+          .subTitle {
+            font-size: 9px;
+          }
+
+          .callNumber {
+            font-size: 11px;
+          }
+
+          .callBox h2 {
+            font-size: 8px;
+          }
+
+          .mailButton {
+            padding: 3px 9px;
+            font-size: 10px;
           }
         }
       `}</style>
-    </>        
+    </>
   );
 }

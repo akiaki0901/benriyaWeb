@@ -3,24 +3,25 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import React from "react";
 
 export default function Pagelayout({
   children,
   background,
   mobile_background,
-  imgPos
-}:{
-  children:any;
-  background?:string;
-  mobile_background?:string;
-  imgPos?:{
-    pc?:string;
-    mobile?:string
-  }
-}){
+  imgPos,
+}: {
+  children: React.ReactNode;
+  background?: string;
+  mobile_background?: string;
+  imgPos?: {
+    pc?: string;
+    mobile?: string;
+  };
+}) {
   const [isMobile, setIsMobile] = useState(false);
-    
+
   useEffect(() => {
     const media = window.matchMedia(`(max-width: 700px)`);
 
@@ -37,47 +38,59 @@ export default function Pagelayout({
     };
   }, []);
 
-  return(
-      <> 
-        <div className="hero">
-          <Header/>
-          <div style={{
-            marginTop:`${isMobile?"80px":"120px"}`,
-          }}>
-            {children}
-          </div>
-          <Footer/>
-        </div>
-        <style jsx>{`
-          .hero {
-            background-image: url("${(isMobile&&mobile_background)?mobile_background:background}");
-            background-repeat: no-repeat;
-            background-position: ${imgPos?.pc??"center center"};
-            background-size: auto 100%;
-            background-color: #fff;
-          }
-          
-          .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
+  return (
+    <>
+      <div className="page">
+        <Header />
 
-            background: rgba(255, 255, 255, 0.12);
-          }
+        <main className="main">
+          {children}
+        </main>
 
-          .hero-content {
-            position: relative;
-            z-index: 1;
-          }
+        <Footer />
+      </div>
 
-          @media (max-width: 768px) {
-            .hero {
-              background-size: cover;
-              background-position: ${imgPos?.mobile??"26% center"};
+      <style jsx>{`
+        .page {
+          width: 100%;
+          min-height: 100vh;
+
+          margin: 0;
+          padding: 0;
+
+          overflow-x: hidden;
+
+          background: white;
+        }
+
+        .main {
+          width: 100%;
+          max-width: none;
+
+          margin: 0;
+
+          /*
+            fixedヘッダーの高さ分だけ
+            コンテンツを下にずらす
+          */
+          padding-top: var(--header-height);
+
+          display: block;
+        }
+
+        @media (max-width: 700px) {
+          .main {
+            padding-top: var(--header-height-mobile);
           }
-        
-        `}</style>
-      </>
+        }
+      `}</style>
+
+      <style jsx global>{`
+        :root {
+          --header-height: 80px;
+          --header-height-mobile: 68px;
+        }
+      `}</style>
+    </>
   );
 }

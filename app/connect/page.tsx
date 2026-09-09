@@ -1,6 +1,6 @@
 
 import NoneImageLayout from "@/components/NoneImageLayout";
-import KojinClient from "@/components/kojin";
+import ConnectClient from "@/components/connect";
 export const metadata={
   title: "個人・ご家族の方ページ",
   description: "個人・家族のお客様へ提供できるサービスを紹介。"
@@ -9,7 +9,7 @@ export const metadata={
 export default function Home() {
   return (
     <NoneImageLayout>
-      <KojinClient/>
+      <ConnectClient/>
     </NoneImageLayout>
   );
 }

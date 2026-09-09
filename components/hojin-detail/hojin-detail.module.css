@@ -1,0 +1,560 @@
+.page {
+  --navy: #082f68;
+  --cream: #fff9ed;
+  --border: #d9dfe4;
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  color: #172b40;
+  font-family: "Noto Sans JP", "Yu Gothic", sans-serif;
+}
+
+.page * {
+  box-sizing: border-box;
+}
+
+.section {
+  width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: 26px clamp(16px, 3.5vw, 52px);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 0 20px;
+  color: var(--navy);
+  font-family: "Yu Mincho", serif;
+  font-size: clamp(23px, 2.4vw, 36px);
+  letter-spacing: 0.07em;
+  text-align: center;
+}
+
+.sectionTitle span {
+  font-size: 0.75em;
+  font-weight: 400;
+}
+
+.hero {
+  position: relative;
+  min-height: clamp(430px, 42vw, 610px);
+  overflow: hidden;
+  background: #f8f9f7;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  background: url("/img-hojin-detail/hero-consultation.png") 73% center / cover
+    no-repeat;
+}
+
+.heroImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #fff 0%,
+    rgba(255, 255, 255, 0.97) 34%,
+    rgba(255, 255, 255, 0.55) 54%,
+    transparent 72%
+  );
+}
+
+.heroCopy {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 62%);
+  padding: clamp(58px, 7vw, 105px) clamp(28px, 5vw, 78px) 110px;
+}
+
+.heroCopy h1 {
+  margin: 0;
+  color: var(--navy);
+  font-family: "Yu Mincho", serif;
+  font-size: clamp(31px, 3.25vw, 50px);
+  line-height: 1.55;
+}
+
+.heroCopy h2 {
+  margin: 14px 0;
+  font-family: "Yu Mincho", serif;
+  font-size: clamp(24px, 2.4vw, 38px);
+}
+
+.heroCopy h2 strong {
+  color: var(--navy);
+}
+.heroCopy > p {
+  font-size: clamp(12px, 1vw, 16px);
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.heroFeatures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.heroFeatures article {
+  display: flex;
+  min-height: 90px;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--navy);
+}
+
+.heroFeatures b {
+  display: block;
+  font-size: 13px;
+}
+.heroFeatures small {
+  font-size: 10px;
+}
+
+.heroBadge {
+  position: absolute;
+  z-index: 2;
+  top: 52%;
+  right: 6%;
+  display: flex;
+  width: 165px;
+  aspect-ratio: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+}
+
+.heroBadge strong {
+  margin: 3px;
+  font-family: serif;
+  font-size: 31px;
+}
+.heroBadge span {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.featuredCard {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.featuredCard h3 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: var(--navy);
+  font-family: "Yu Mincho", serif;
+  font-size: clamp(20px, 1.85vw, 28px);
+}
+
+.featuredCard h3 b {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 6px;
+  background: var(--navy);
+  color: #fff;
+}
+
+.featuredCard > p {
+  margin: 10px 0 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.imageFlow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.flowImage {
+  position: relative;
+}
+.flowImage img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.35;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.flowImage span {
+  position: absolute;
+  top: 42%;
+  right: -14px;
+  color: var(--navy);
+  font-size: 28px;
+}
+.featuredCard ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 18px;
+  margin: 15px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.consultationBanner {
+  display: grid;
+  width: min(calc(100% - 40px), 1370px);
+  grid-template-columns: auto 1.4fr 1fr;
+  gap: 20px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 22px 38px;
+  border: 1px solid #e8d4a5;
+  border-radius: 12px;
+  background: var(--cream);
+}
+
+.questionIcon {
+  display: grid;
+  width: 70px;
+  height: 70px;
+  place-items: center;
+  border: 2px solid var(--navy);
+  border-radius: 50%;
+  color: var(--navy);
+  font-size: 34px;
+}
+
+.consultationBanner h2 {
+  margin: 0 0 5px;
+  font-family: serif;
+  font-size: clamp(18px, 1.65vw, 25px);
+}
+.consultationBanner strong {
+  color: #a74717;
+  font-family: serif;
+  font-size: clamp(17px, 1.55vw, 23px);
+}
+.consultationBanner p {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.concernGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+.concernCard {
+  display: flex;
+  min-height: 135px;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--navy);
+}
+.concernCard p {
+  margin: 0;
+  color: #273846;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.supportGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.supportCard {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.supportCard h3 {
+  margin: 0 0 16px;
+  color: var(--navy);
+  font-family: serif;
+  font-size: 18px;
+  text-align: center;
+}
+.supportItems {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.supportItems > div {
+  position: relative;
+  text-align: center;
+}
+.supportIcon {
+  display: block;
+  color: var(--navy);
+  font-size: 42px;
+  line-height: 1;
+}
+.supportItems p {
+  margin: 7px 0 0;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.supportItems b {
+  position: absolute;
+  top: 14px;
+  right: -9px;
+  font-size: 24px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+.step {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--navy);
+}
+.step > b {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  font-size: 11px;
+}
+.step h3 {
+  margin: 2px 0 7px;
+  font-size: 13px;
+}
+.step p {
+  margin: 0;
+  color: #344657;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.step > span {
+  position: absolute;
+  top: 40%;
+  right: -15px;
+  font-size: 27px;
+}
+
+.cta {
+  display: grid;
+  min-height: 190px;
+  grid-template-columns: 22% 1fr auto;
+  align-items: center;
+  background: #f2f5f6;
+}
+
+.ctaPhoto {
+  align-self: stretch;
+  background: url("/img-hojin-detail/cta-worker.png") center / cover no-repeat;
+}
+.ctaMessage {
+  padding: 20px 30px;
+}
+.ctaMessage h2 {
+  margin: 0;
+  color: var(--navy);
+  font-family: serif;
+  font-size: clamp(25px, 2.6vw, 40px);
+}
+.ctaMessage p {
+  margin: 8px 0 15px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.ctaMessage div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.ctaContact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 40px 20px 10px;
+}
+.ctaContact strong {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--navy);
+  font-family: serif;
+  font-size: clamp(25px, 2.5vw, 38px);
+  white-space: nowrap;
+}
+.ctaContact small,
+.ctaContact > span {
+  font-size: 9px;
+}
+.ctaContact button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0 4px;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .featuredGrid,
+  .supportGrid {
+    grid-template-columns: 1fr;
+  }
+  .concernGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cta {
+    grid-template-columns: 25% 1fr;
+  }
+  .ctaContact {
+    grid-column: 1 / -1;
+    padding: 12px 24px 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .section {
+    padding: 24px 12px;
+  }
+  .sectionTitle {
+    gap: 6px;
+    font-size: clamp(19px, 5.5vw, 26px);
+  }
+  .hero {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+  }
+  .heroImage {
+    position: relative;
+    height: 58vw;
+    min-height: 215px;
+    background-position: center;
+  }
+  .heroImage::after {
+    display: none;
+  }
+  .heroCopy {
+    width: 100%;
+    padding: 24px 17px;
+  }
+  .heroCopy h1 {
+    font-size: 26px;
+  }
+  .heroCopy h2 {
+    font-size: 21px;
+  }
+  .heroCopy > p {
+    font-size: 12px;
+  }
+  .heroFeatures {
+    grid-template-columns: 1fr;
+  }
+  .heroBadge {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 125px;
+    margin: 0 auto 20px;
+    transform: none;
+  }
+  .featuredGrid {
+    gap: 14px;
+  }
+  .featuredCard {
+    padding: 14px;
+  }
+  .imageFlow {
+    gap: 10px;
+  }
+  .featuredCard ul {
+    grid-template-columns: 1fr;
+  }
+  .consultationBanner {
+    width: calc(100% - 24px);
+    grid-template-columns: auto 1fr;
+    padding: 18px;
+  }
+  .consultationBanner p {
+    grid-column: 1 / -1;
+  }
+  .questionIcon {
+    width: 54px;
+    height: 54px;
+  }
+  .concernGrid {
+    grid-template-columns: 1fr;
+  }
+  .concernCard {
+    min-height: 90px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+  .step > span {
+    top: auto;
+    right: 50%;
+    bottom: -21px;
+    transform: rotate(90deg);
+  }
+  .cta {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .ctaPhoto {
+    height: 220px;
+  }
+  .ctaMessage {
+    padding: 22px 16px;
+  }
+  .ctaMessage div {
+    justify-content: center;
+  }
+  .ctaContact {
+    grid-column: auto;
+    padding: 10px 17px 24px;
+  }
+}

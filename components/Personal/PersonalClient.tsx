@@ -58,7 +58,7 @@ export default function PersonalClient(){
         </div>
 
         <div className="underContents">
-          <div className="fee under_box" style={{
+          <div className="under_box" style={{
               padding:"8px 0px 0px 15px"
           }}>
             <h1
@@ -70,24 +70,24 @@ export default function PersonalClient(){
             <h1 className="subSlogan">
               安心の明朗会計で、事前にお見積りします。
             </h1>
-            <div style={{display:"flex"}}>
+            <div className="money_box_inner">
               <div className="money_box">
-                <h1>家財整理</h1>
-                <h2>30,000円~</h2>
+                <h1 className="fee_title">家財整理</h1>
+                <h2 className="fee">30,000円~</h2>
               </div>
               <div className="money_box">
-                <h1>引っ越し(軽トラック)</h1>
-                <h2>20,000円~</h2>
+                <h1 className="fee_title">引っ越し(軽トラック)</h1>
+                <h2 className="fee">20,000円~</h2>
               </div>
               <div className="money_box">
-                <h1>空き家管理(巡回)</h1>
-                <h2>5500円/月~</h2>
+                <h1 className="fee_title">空き家管理(巡回)</h1>
+                <h2 className="fee">5,500円/月~</h2>
               </div>
             </div>
-            <div className="detail">詳しく見る ▶</div>
+            <div style={{alignSelf:"center",marginTop: "auto",}} className="detail">詳しく見る ▶</div>
           </div>
 
-          <div className="voice under_box" style={{
+          <div className="under_box" style={{
               padding:"8px 0px 0px 15px"
             }}>
             <h1
@@ -95,11 +95,14 @@ export default function PersonalClient(){
             >
               お客様の声
             </h1>
-            <div>
-              <h1 className="subSlogan">ご利用いただいた方の</h1>
-              <h1 className="subSlogan">声をご紹介します。</h1>
+            <div style={{display:"flex",justifyContent:"center"}}>
+              <div style={{padding:"20px"}}>
+                  <h1 className="subSlogan">ご利用いただいた方の</h1>
+                  <h1 className="subSlogan">声をご紹介します。</h1>
+              </div>
             </div>
-            <div className="detail_white">詳しく見る ▶</div>
+              
+            <div style={{alignSelf:"center",marginTop: "auto",}} className="detail_white">詳しく見る ▶</div>
           </div>
         </div>
 
@@ -129,13 +132,30 @@ export default function PersonalClient(){
           flex-direction: column;
           align-items: center;
 
-          padding-bottom: 120px;
+          padding-bottom: 80px;
 
           overflow: hidden;
 
           isolation: isolate;
         }
 
+        @media(max-width:700px) {
+          .heroArea {
+            position: relative;
+
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+
+            padding-bottom: 40px;
+
+            overflow: hidden;
+
+            isolation: isolate;
+          }
+        }
+      
         .heroArea::before {
           content: "";
           position: absolute;
@@ -197,7 +217,18 @@ export default function PersonalClient(){
           background: white;
 
           display:flex;
+          justify-content:center;
+        }
 
+        @media(max-width:700px) {
+          .underContents {
+            position: relative;
+            width: 100%;
+            background: white;
+
+            display:flex;
+            flex-direction:column;
+          }
         }
 
         .under_title {
@@ -205,15 +236,31 @@ export default function PersonalClient(){
           font-weight: 500;
           white-space: nowrap;
 
-          margin:5px;
+          margin:4px;
         }
 
         .under_box {
           display: flex;
           flex-direction: column;
-          background-color: rgb(227, 231, 210);
+          background-color: rgb(235, 238, 218);
           border-radius: 8px;
-          margin: 5px;
+          margin:3px;
+          min-width:370px;
+        }
+        
+        .money_box_inner {
+          display:flex;
+          padding:3px;
+        }
+
+        @media(max-width:700px){
+          .money_box_inner {
+            display:grid;
+            grid-template-columns: repeat(
+              2,
+              minmax(150px, 220px)
+            );
+          }
         }
 
         .money_box {
@@ -222,7 +269,20 @@ export default function PersonalClient(){
 
           background-color: rgb(247, 248, 245);
           border-radius: 8px;
-          margin: 5px;
+          margin: 3px;
+
+          padding:6px;
+        }
+
+        .fee_title {
+          font-size:clamp(16px,3vw,20px);
+          font-weight:600;
+          white-space: nowrap;
+        }
+        .fee {
+          font-size:clamp(20px,4vw,32px);
+          font-weight:600;
+          white-space: nowrap;
         }
 
         .detail {
@@ -237,6 +297,8 @@ export default function PersonalClient(){
           align-items:center;
 
           color:white;
+
+          margin-bottom:5px;
         }
         .detail_white {
           background-color:rgb(247, 252, 247);
@@ -251,6 +313,8 @@ export default function PersonalClient(){
           align-items:center;
 
           color:black;
+
+          margin-bottom:5px;
         }
       `}</style>
     </>
