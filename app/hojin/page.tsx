@@ -1,4 +1,4 @@
-import HojinClient from "@/components/Hojin/HojinClient";
+import HojinClient from "@/components/hojin/HojinClient";
 import Pagelayout from "@/components/Pagelayout";
 
 export const metadata={
