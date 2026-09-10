@@ -7,6 +7,7 @@ const cases = [
     image: "/sisetu-tyo.png",
     color: "#0b326f",
     hover: "#315887",
+    next: "/hojin-detail",
     items: [
       "急な退去で部屋を空けたい",
       "残置物の片付け・原状回復",
@@ -63,6 +64,7 @@ export default function Zirei() {
             image={c.image}
             color={c.color}
             hoverColor={c.hover}
+            next={c.next}
           >
             {c.items.map((i) => (
               <div className="item" key={i}>
