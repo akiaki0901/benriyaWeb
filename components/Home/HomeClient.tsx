@@ -37,6 +37,7 @@ export default function HomeClient(){
               hover_color="rgb(92, 248, 92)"
           />
           <SpritCard
+              next="hojin"
               image="/sp_hojin.png"
               title="法人・福祉関係者の方"
               subTitle="利用者様・ご家族への支援から、施設のお困りごとまで"
@@ -47,6 +48,7 @@ export default function HomeClient(){
               hover_color="rgb(105, 105, 255)"
           />
           <SpritCard
+              next="connect"
               image="/sp_connect.png"
               title="居宅支援事業所コネクト"
               subTitle="介護保険・ケアプラン等のご相談"
