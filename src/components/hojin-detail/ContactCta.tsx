@@ -1,5 +1,7 @@
 import Icon from "./Icon";
 import styles from "./hojin-detail.module.css";
+import Link from "next/link";
+
 
 export default function ContactCta() {
   return (
@@ -20,10 +22,11 @@ export default function ContactCta() {
           0120-123-456
         </strong>
         <small>受付時間 9:00〜18:00（年中無休）</small>
-        <button type="button">
+        <Link href="/reservation">
+          <button>
           <Icon name="mail" size={21} />
-          お問い合わせはこちら
-        </button>
+          お問い合わせはこちら</button>
+        </Link>
         <span>フォームから24時間受付中</span>
       </div>
     </section>

@@ -47,7 +47,7 @@ export default function Header({
   fixed = true,
   navItems = defaultNavItems,
   logoSrc = "/Icons/Header.svg",
-  contactHref = "/contact",
+  contactHref = "/reservation",
 }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

@@ -1,4 +1,7 @@
 import Icon from "./Icon";
+
+import Link from "next/link";
+
 export default function ContactCTA() {
   return (
     <section className="cta">
@@ -19,10 +22,13 @@ export default function ContactCTA() {
           <strong>0120-123-456</strong>
         </div>
         <small>受付時間 9:00〜18:00（年中無休）</small>
-        <button>
-          <Icon name="mail" size={21} />
-          お問い合わせはこちら
-        </button>
+        <Link href="/reservation">
+          <button>
+            <Icon name="mail" size={21} />
+            お問い合わせはこちら
+          </button>
+        </Link>
+        
       </div>
       <style jsx>{`
         .cta {

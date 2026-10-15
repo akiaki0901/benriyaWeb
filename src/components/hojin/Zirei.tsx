@@ -23,6 +23,7 @@ const cases = [
     image: "/care-manager.png",
     color: "#397532",
     hover: "#5b9155",
+    next: "/care-manager",
     items: [
       "施設入居に伴う家財整理・引越し",
       "空き家の管理・片付け",

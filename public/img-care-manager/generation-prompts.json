@@ -1,0 +1,26 @@
+{
+  "generator": "Built-in image_gen",
+  "purpose": "AI-generated illustrative website photos, not actual staff or customer photos.",
+  "assets": [
+    {
+      "file": "hero-consultation.png",
+      "prompt": "Use case: photorealistic-natural. Create a landscape 3:2 editorial photograph for a Japanese care-manager support website. Bright welcoming consultation room, plants, warm white and pale wood. A friendly Japanese female care coordinator in her 30s wearing a beige blazer, cream blouse and plain blue lanyard listens attentively to an older Japanese woman seen from behind on the far right. Coordinator at 65 percent of frame width, face clearly visible, holding a simple folder. Left third softly lit uncluttered room, suitable for a website gradient overlay. Medium wide shot, natural skin texture, warm daylight, realistic hands, professional trustworthy and approachable. No text, logos, watermarks or graphic overlays. One photograph, not a collage."
+    },
+    {
+      "file": "daily-support.png",
+      "prompt": "Use case: photorealistic-natural. Landscape 3:2 editorial photograph for a Japanese daily living support service website. A friendly Japanese male support worker in a clean navy work shirt walks alongside an older Japanese woman outdoors on an accessible garden path near her home, carrying her small grocery shopping bag. Both naturally smiling, respectful independent older adult, no medical uniforms. Medium shot with people centered and faces within central safe crop. Soft natural daylight, green foliage, warm natural skin texture, restrained professional photography matching a care support brochure. No text, logos, watermarks or graphics. One photograph."
+    },
+    {
+      "file": "home-organizing.png",
+      "prompt": "Use case: photorealistic-natural. Landscape 3:2 editorial photograph for a Japanese home organizing service website. Japanese male worker in neat navy work clothes carefully packs folded belongings into a cardboard box in a bright tidy lived-in Japanese home. Plain unlabeled cardboard boxes, light wood furniture, clean cream walls, a small plant. Worker centered in mid-shot with natural hands clearly placing a folded sweater into open box. Warm daylight, realistic materials and skin, reassuring respectful treatment of belongings, polished natural editorial photography. No text, logos, watermarks or graphics. One photograph."
+    },
+    {
+      "file": "facility-moving.png",
+      "prompt": "Use case: photorealistic-natural. Landscape 3:2 editorial photograph for a Japanese senior residence relocation service website. Two Japanese professional movers in neat navy blue work uniforms carefully position a compact wooden bedside cabinet in a bright accessible senior residence room, a neatly made single bed visible nearby, cardboard boxes in background. Both workers have natural safe lifting posture, believable anatomy, no resident in bed. Wide shot centered on workers and furniture, light wood floor and warm white walls, soft daylight, reassuring orderly professional scene. No text, logos, watermarks or graphics. One photograph."
+    },
+    {
+      "file": "community-partnership.png",
+      "prompt": "Use case: photorealistic-natural. Landscape 3:2 editorial photograph for a Japanese professional and community service coordination website. A Japanese female care coordinator wearing a beige blazer and a Japanese male community professional in a dark business jacket sit at a light wood desk discussing a blank folder and a small unbranded model house. Medium close shot includes natural faces and hands, cooperative friendly expressions, subjects centered. Bright warm neutral office with green plant and soft daylight, realistic skin and materials, professional approachable editorial photography. No readable text, logos, watermarks or graphics. One photograph."
+    }
+  ]
+}
