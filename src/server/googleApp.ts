@@ -1,10 +1,10 @@
 import type { ReservationRecord } from "@/types/reservation";
 
 export async function requestGoogleAppScript(
-  body: ReservationRecord
+  body: ReservationRecord,
+  url: string,
+  apiToken:string
 ): Promise<void> {
-
-  const url = process.env.GOOGLE_APPS_SCRIPT_URL;
 
   if (!url) {
     throw new Error(
@@ -17,7 +17,7 @@ export async function requestGoogleAppScript(
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify({...body,apiToken:apiToken}),
     cache: "no-store",
     redirect: "follow",
   });
@@ -46,6 +46,7 @@ export async function requestGoogleAppScript(
     !("success" in result) ||
     result.success !== true
   ) {
+    console.log(result);
     throw new Error("Apps Scriptで予約保存に失敗しました");
   }
 }

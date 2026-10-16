@@ -11,7 +11,6 @@ import {
 import FormField from "./FormField";
 import styles from "./reservation.module.css";
 import type {
-  ApiResult,
   AttachedImage,
   ReservationFormData,
   SubmitStatus,
@@ -108,7 +107,6 @@ export default function MailForm() {
 
     try {
       await sendMail();
-      await saveReservation();
       clearForm(false);
       setStatus({
         type: "success",
@@ -132,17 +130,17 @@ export default function MailForm() {
     const body = new FormData();
 
     body.append("name", form.name);
-    body.append("tell", form.phone);
+    body.append("phone", form.phone);
     body.append("email", form.email);
     body.append("address", form.address);
-    body.append("content", form.requestContent);
+    body.append("requestContent", form.requestContent);
     body.append("preferredDate", form.preferredDate);
 
     images.forEach((image) => {
       body.append("images[]", image.file);
     });
 
-    const response = await fetch("/api/send", {
+    const response = await fetch("/api/reservation", {
       method: "POST",
       body,
     });
@@ -150,26 +148,6 @@ export default function MailForm() {
     if (!response.ok) {
       const message = await response.text();
       throw new Error(message || "メールの送信に失敗しました。");
-    }
-  }
-
-  async function saveReservation() {
-    const response = await fetch("/api/reservation", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    const text = await response.text();
-    let result: ApiResult;
-
-    try {
-      result = JSON.parse(text) as ApiResult;
-    } catch {
-      throw new Error("予約情報の保存中にエラーが発生しました。");
-    }
-
-    if (!response.ok || !result.success) {
-      throw new Error(result.message ?? "予約情報の保存に失敗しました。");
     }
   }
 
